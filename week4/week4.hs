@@ -41,3 +41,26 @@ insert x (Node d l v r)
     depthOf Leaf = -1
     depthOf (Node d _ _ _) = d
 
+-- Ex3
+
+xor :: [Bool] -> Bool
+xor = foldr (\x acc -> if x then not acc else acc) False
+
+map' :: (a -> b) -> [a] -> [b]
+map' f = foldr (\x acc -> f x : acc) []
+
+myFoldl :: (a -> b -> a) -> a -> [b] -> a
+myFoldl f base xs = foldr (flip f) base (reverse xs)
+
+-- Ex4
+
+sieveSundaram :: Integer -> [Integer]
+sieveSundaram n = snd $ last $ takeWhile (\(nth, xs) -> nth < length xs) $ iterate cross (0, [2..(2*n+2)])
+
+cross :: (Int, [Integer]) -> (Int, [Integer])
+cross (n, xs) = (n+1, filter (\x -> (x `mod` (xs !! n)) /= 0 || x == (xs !! n)) xs)
+
+-- Much better solution from Haskell official website
+primes = filterPrime [2..] 
+  where filterPrime (p:xs) = 
+          p : filterPrime [x | x <- xs, x `mod` p /= 0]
