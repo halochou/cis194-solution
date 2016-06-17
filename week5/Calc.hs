@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE TypeSynonymInstances #-}
 
 module Calc where
@@ -17,7 +18,7 @@ eval (E.Mul exprL exprR) = (eval exprL) * (eval exprR)
 -- Ex2
 
 evalStr :: String -> Maybe Integer
-evalStr str = eval <$> parseExp Lit Add Mul str
+evalStr str = eval <$> parseExp E.Lit E.Add E.Mul str
 
 -- Ex3
 
@@ -68,11 +69,11 @@ testMM = testExp :: Maybe MinMax
 testSat = testExp :: Maybe Mod7
 
 -- Ex5
+
 instance Expr Program where
   lit n = [PushI n]
-  add x1 x2 = [PushI x1, PushI x2, Add]
-  mul x1 x2 = [PushI x1, PushI x2, Mul]
+  add x1 x2 = concat [x1, x2, [Add]]
+  mul x1 x2 = concat [x1, x2, [Mul]]
 
-testPg = testExp :: Maybe Program
-
---compile :: String -> Maybe Program
+compile :: String -> Maybe Program
+compile = parseExp lit add mul
