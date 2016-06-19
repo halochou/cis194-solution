@@ -8,6 +8,17 @@ skips xs = map (takeWithInterval xs) [1..(length xs)]
   where
     takeWithInterval xs n = map snd $ filter ((==0) . (`mod` n) . fst) $ zip [1..] xs
 
+-- Ex2
+
+localMaxima :: [Integer] -> [Integer]
+localMaxima xs = map getFst $ filter isMaxima $ zip3 xsMiddle xsShiftL xsShiftR
+  where
+    xsMiddle = drop 1 xs
+    xsShiftL = drop 2 xs
+    xsShiftR = xs
+    isMaxima (xs,xsL,xsR) = xs >= xsL && xs >= xsR
+    getFst (x, _, _) = x
+
 -- Ex3
 histogram :: [Integer] -> String
 histogram = concat . (intersperse "\n") . reverse . (["0123456789","=========="] ++) . drawGraph
