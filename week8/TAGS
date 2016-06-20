@@ -1,0 +1,43 @@
+
+./Employee.hs,418
+type Name Name5,6
+type Fun Fun9,10
+data Employee Employee12,13
+data Employee = Emp Emp12,13
+data Employee = Emp { empName empName12,13
+data Employee = Emp { empName :: Name, empFun empFun12,13
+testCompany testCompany16,17
+testCompanytestCompany17,18
+testCompany2 testCompany231,32
+testCompany2testCompany232,33
+data GuestList GuestList47,48
+data GuestList = GL GL47,48
+instance instance50,51
+
+./flycheck_Party.hs,280
+module Party Party1,2
+glCons glCons8,9
+glCons glCons9,10
+instance instance11,12
+moreFun moreFun15,16
+moreFun moreFun16,17
+treeFold treeFold22,23
+treeFold treeFold23,24
+nextLevel nextLevel28,29
+nextLevel nextLevel29,30
+maxFun maxFun36,37
+maxFun maxFun37,38
+
+./Party.hs,280
+module Party Party1,2
+glCons glCons8,9
+glCons glCons9,10
+instance instance11,12
+moreFun moreFun15,16
+moreFun moreFun16,17
+treeFold treeFold22,23
+treeFold treeFold23,24
+nextLevel nextLevel28,29
+nextLevel nextLevel29,30
+maxFun maxFun36,37
+maxFun maxFun37,38
