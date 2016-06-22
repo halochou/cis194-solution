@@ -3,6 +3,7 @@ module Party where
 
 import Employee
 import Data.Tree
+import Data.List (sort)
 
 -- Ex1
 
@@ -20,9 +21,9 @@ moreFun l@(GL _ fl) r@(GL _ fr)
 
 -- Ex2
 
-treeFold :: (a -> b -> b) -> b -> Tree a -> b
-treeFold f acc (Node rl []) = f rl acc
-treeFold f acc (Node rl (t:ts)) = treeFold f (treeFold f acc t) (Node rl ts)
+treeFold :: (a -> [b] -> b) -> [b] -> Tree a -> b
+treeFold f acc (Node rl []) =  f rl acc
+treeFold f acc (Node rl subTrees) = f rl (map (treeFold f acc) subTrees)
 
 -- Ex3
 
@@ -30,9 +31,21 @@ nextLevel :: Employee -> [(GuestList, GuestList)] -> (GuestList, GuestList)
 nextLevel boss gls = (glCons boss glWithBoss, glWithoutBoss)
   where
     glWithBoss = foldr (mappend . snd) mempty gls
-    glWithoutBoss = foldr (mappend . fst) mempty gls
+    glWithoutBoss = foldr (mappend . uncurry max) mempty gls
 
 -- Ex4
 
 maxFun :: Tree Employee -> GuestList
-maxFun = moreFun . curry . treeFold nextLevel [(mempty, mempty)] 
+maxFun = uncurry moreFun . treeFold nextLevel [(mempty, mempty)]
+
+-- Ex5
+
+main :: IO ()
+main = do
+  content <- readFile "company.txt"
+  putStrLn $ formatGL . maxFun $ read content
+
+
+formatGL :: GuestList -> String
+formatGL (GL emps fun) = unlines $ headLine : sort (map empName emps)
+  where headLine = "Total fun: " ++ show fun

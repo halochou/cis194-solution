@@ -14,30 +14,20 @@ data GuestList GuestList47,48
 data GuestList = GL GL47,48
 instance instance50,51
 
-./flycheck_Party.hs,280
+./Party.hs,366
 module Party Party1,2
-glCons glCons8,9
 glCons glCons9,10
-instance instance11,12
-moreFun moreFun15,16
+glCons glCons10,11
+instance instance12,13
 moreFun moreFun16,17
-treeFold treeFold22,23
+moreFun moreFun17,18
 treeFold treeFold23,24
-nextLevel nextLevel28,29
+treeFold treeFold24,25
 nextLevel nextLevel29,30
-maxFun maxFun36,37
+nextLevel nextLevel30,31
 maxFun maxFun37,38
-
-./Party.hs,280
-module Party Party1,2
-glCons glCons8,9
-glCons glCons9,10
-instance instance11,12
-moreFun moreFun15,16
-moreFun moreFun16,17
-treeFold treeFold22,23
-treeFold treeFold23,24
-nextLevel nextLevel28,29
-nextLevel nextLevel29,30
-maxFun maxFun36,37
-maxFun maxFun37,38
+maxFun maxFun38,39
+main main42,43
+main main43,44
+formatGL formatGL48,49
+formatGL formatGL49,50
