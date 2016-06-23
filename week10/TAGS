@@ -1,0 +1,23 @@
+
+./AParser.hs,565
+module AParser AParser4,5
+newtype Parser Parser14,15
+newtype Parser a = Parser Parser14,15
+newtype Parser a = Parser { runParser runParser14,15
+satisfy satisfy20,21
+satisfy satisfy21,22
+char char32,33
+char char33,34
+posInt posInt48,49
+posInt posInt49,50
+first first62,63
+first first63,64
+instance instance65,66
+abParser abParser82,83
+abParser abParser83,84
+abParser_ abParser_85,86
+abParser_ abParser_86,87
+intPair intPair88,89
+intPair intPair89,90
+intOrUppercase intOrUppercase100,101
+intOrUppercase intOrUppercase101,102
