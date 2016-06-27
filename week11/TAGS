@@ -1,0 +1,39 @@
+
+./AParser.hs,352
+module AParser AParser0,1
+newtype Parser Parser5,6
+newtype Parser a = Parser Parser5,6
+newtype Parser a = Parser { runParser runParser5,6
+satisfy satisfy7,8
+satisfy satisfy8,9
+char char15,16
+char char16,17
+posInt posInt18,19
+posInt posInt19,20
+inParser inParser26,27
+first first28,29
+first first29,30
+instance instance31,32
+
+./SExpr.hs,540
+zeroOrMore zeroOrMore14,15
+zeroOrMore zeroOrMore15,16
+oneOrMore oneOrMore17,18
+oneOrMore oneOrMore18,19
+spaces spaces24,25
+spaces spaces25,26
+ident ident27,28
+ident ident28,29
+type Ident Ident37,38
+data Atom Atom40,41
+data Atom = N N40,41
+data Atom = N Integer | I I40,41
+data SExpr SExpr44,45
+data SExpr = A A44,45
+           | Comb Comb45,46
+parseSExpr parseSExpr48,49
+parseSExpr parseSExpr49,50
+parseAtom parseAtom51,52
+parseAtom parseAtom52,53
+parseComb parseComb54,55
+parseComb parseComb55,56
